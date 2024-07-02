@@ -6,13 +6,47 @@
 /*   By: aschmidt <aschmidt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 14:10:32 by aschmidt          #+#    #+#             */
-/*   Updated: 2024/07/01 14:41:00 by aschmidt         ###   ########.fr       */
+/*   Updated: 2024/07/02 13:01:54 by aschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-int	main(void)
+void	send_message(int pid, char *str, int len)
 {
-	ft_printf("I dont do anything");
+	int		i;
+	int		bit;
+	char	ch;
+
+	i = 0;
+	bit = 0;
+	while(i < len)
+	{
+		ch = str[i];
+		while (bit < 8)
+		{
+			if ((ch >> bit) & 1)
+				kill(pid, SIGUSR1);
+			else
+				kill(pid, SIGUSR2);
+			bit++;
+			usleep(100);
+		}
+		i++;
+	}
+
+}
+
+int	main(int argc, char *argv[])
+{
+	int	server_id;
+
+	if (argc != 3)
+	{
+		ft_printf("Error! You should provice [Server PID] [Message]");
+		return (0);
+	}
+	server_id = ft_atoi(argv[1]);
+
+	send_message(server_id, argv[2], ft_strlen(argv[2]));
 }
