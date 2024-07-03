@@ -30,7 +30,7 @@ void	send_message(int pid, char *str, int len)
 			else
 				kill(pid, SIGUSR1);
 			bit++;
-			usleep(100);
+			usleep(300);
 		}
 		i++;
 	}

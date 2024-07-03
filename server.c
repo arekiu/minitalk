@@ -29,15 +29,28 @@ void bit_handler(int signum)
         char_bit = 0;
     }
 }
+void set_signal_handlers(void)
+{
+    struct sigaction signal;
+    
+    signal.sa_handler = bit_handler;
+    sigemptyset(&signal.sa_mask);
+    signal.sa_flags = 0;
+    if (sigaction(SIGUSR1, &signal, NULL) == -1 || \
+        sigaction(SIGUSR2, &signal, NULL) == -1)
+    {
+        ft_printf("Error setting signal handlers\n");
+        exit(1);
+    }
+}
 
 int main()
 {
-	ft_printf("The server is running>>>");
+	ft_printf("The server is running>>>\n");
 	ft_printf("Server PID: %d\n", getpid());
+    set_signal_handlers();
 	while (1)
 	{
-		signal(SIGUSR2, bit_handler);
-        signal(SIGUSR1, bit_handler);
 		pause();
 	}
 	return 0;
