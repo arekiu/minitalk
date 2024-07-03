@@ -47,6 +47,5 @@ int	main(int argc, char *argv[])
 		return (0);
 	}
 	server_id = ft_atoi(argv[1]);
-
 	send_message(server_id, argv[2], ft_strlen(argv[2]));
 }
