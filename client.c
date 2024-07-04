@@ -6,7 +6,7 @@
 /*   By: aschmidt <aschmidt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 14:10:32 by aschmidt          #+#    #+#             */
-/*   Updated: 2024/07/04 10:55:20 by aschmidt         ###   ########.fr       */
+/*   Updated: 2024/07/04 12:10:43 by aschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	send_message(int pid, char *str, int len)
 	char	ch;
 
 	i = 0;
-	while(i < len)
+	while (i < len)
 	{
 		bit = 0;
 		ch = str[i];
@@ -30,11 +30,10 @@ void	send_message(int pid, char *str, int len)
 			else
 				kill(pid, SIGUSR1);
 			bit++;
-			usleep(700);
+			usleep(600);
 		}
 		i++;
 	}
-
 }
 
 int	main(int argc, char *argv[])
