@@ -6,7 +6,7 @@
 /*   By: aschmidt <aschmidt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 14:10:32 by aschmidt          #+#    #+#             */
-/*   Updated: 2024/07/04 10:23:58 by aschmidt         ###   ########.fr       */
+/*   Updated: 2024/07/04 10:55:20 by aschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	send_message(int pid, char *str, int len)
 			else
 				kill(pid, SIGUSR1);
 			bit++;
-			usleep(300);
+			usleep(700);
 		}
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: aschmidt <aschmidt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 14:10:39 by aschmidt          #+#    #+#             */
-/*   Updated: 2024/07/02 13:14:38 by aschmidt         ###   ########.fr       */
+/*   Updated: 2024/07/04 10:36:49 by aschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void bit_handler(int signum)
     bits++;
     if (bits == 8)
     {
-        ft_printf("%c", char_bit);
+        write(1, &char_bit, 1);
         bits = 0;
         char_bit = 0;
     }
@@ -32,7 +32,7 @@ void bit_handler(int signum)
 void set_signal_handlers(void)
 {
     struct sigaction signal;
-    
+
     signal.sa_handler = bit_handler;
     sigemptyset(&signal.sa_mask);
     signal.sa_flags = 0;
