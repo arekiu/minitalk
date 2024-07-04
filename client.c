@@ -6,7 +6,7 @@
 /*   By: aschmidt <aschmidt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 14:10:32 by aschmidt          #+#    #+#             */
-/*   Updated: 2024/07/02 13:17:39 by aschmidt         ###   ########.fr       */
+/*   Updated: 2024/07/04 10:23:58 by aschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		ft_printf("Error! You should provice [Server PID] [Message]");
+		ft_printf("Error! You should provice [Server PID] [Message]\n");
 		return (0);
 	}
 	server_id = ft_atoi(argv[1]);
