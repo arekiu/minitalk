@@ -6,7 +6,7 @@
 /*   By: aschmidt <aschmidt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 14:10:32 by aschmidt          #+#    #+#             */
-/*   Updated: 2024/07/04 12:10:43 by aschmidt         ###   ########.fr       */
+/*   Updated: 2024/07/08 15:09:22 by aschmidt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ int	main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		ft_printf("Error! You should provice [Server PID] [Message]\n");
+		ft_printf(RED "Error! " RESET "You should provide " YELLOW \
+			"[Server PID] [Message]" RESET "\n");
 		return (0);
 	}
 	server_id = ft_atoi(argv[1]);
